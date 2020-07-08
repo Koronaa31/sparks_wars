@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -55,6 +57,9 @@ public class Unit {
 	//@JsonView(Views.Match.class)	
 	protected int vision;
 	
+	@ManyToOne
+	@JoinColumn(name = "Tile_Id")
+	//@JsonView(Views.Match.class)
 	protected Tile tile;
 	
 	@Column(name = "Player", nullable = false)
@@ -69,6 +74,7 @@ public class Unit {
 	@Column(name = "Ripost", nullable = false)
 	//@JsonView(Views.Match.class)	
 	protected boolean ripost;
+	
 	
 	protected List<Tile> autorizedShot;
 	
